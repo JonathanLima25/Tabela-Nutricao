@@ -9,10 +9,22 @@ let alturas = [];
 tdAlturas.forEach(altura => alturas.push(altura.textContent));
 
 
+tdPesos.forEach(peso => {if(peso.textContent<0 || peso.textContent>1000){
+    peso.textContent = "Peso Invalido!"
+}})
+
+tdAlturas.forEach(altura => {if(altura.textContent<0 || altura.textContent>1000){
+    altura.textContent = "Altura Invalido!"
+}})
+
 function calcIMC(peso, altura, index){
     let IMC = peso / (altura * altura);
-    
-    tdIMCs[index].textContent = IMC.toFixed(2);
+    if(IMC < 5 || IMC >50){
+        tdIMCs[index].textContent = "IMC inválido!"
+    }
+    else{
+        tdIMCs[index].textContent = IMC.toFixed(2);
+    }
 }
 
 for(let i=0; i<pesos.length; i++){
