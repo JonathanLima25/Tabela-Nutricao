@@ -5,7 +5,11 @@ botaoAdicionar.addEventListener("click", function(){
 
     xhr.open("GET", "https://api-pacientes.herokuapp.com/pacientes");
     xhr.addEventListener("load", function(){
-        console.log(xhr.responseText)
+        let resposta = xhr.responseText;
+        let pacientes = JSON.parse(resposta);
+        pacientes.forEach(paciente => {
+            adicionaPaciente(paciente)
+        });
     })
     xhr.send();
 })

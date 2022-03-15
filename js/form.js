@@ -6,8 +6,7 @@ botao.onclick = function(event){
     
     let paciente = obtemPacienteFormulario(form);
 
-    let pacienteTr = montaTr(paciente);
-
+    adicionaPaciente(paciente);
     let erros = validaPaciente(paciente);
 
     if(erros.length > 0){
@@ -17,11 +16,16 @@ botao.onclick = function(event){
         return;
     }
 
-    let tabela = document.querySelector('#tabela-pacientes');
-    tabela.appendChild(pacienteTr);
+
 
     form.reset();
     document.querySelector('#mensagens-erro').innerHTML = "";
+}
+
+function adicionaPaciente(paciente){
+    let pacienteTr = montaTr(paciente);
+    let tabela = document.querySelector('#tabela-pacientes');
+    tabela.appendChild(pacienteTr);
 }
 
 function exibeMensagensErro(erros){
