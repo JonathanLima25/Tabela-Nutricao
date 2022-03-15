@@ -52,3 +52,4 @@ function obtemPacienteFormulario(form) {
 
     return td;
  }
+

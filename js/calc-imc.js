@@ -8,13 +8,14 @@ tdPesos.forEach(peso => pesos.push(peso.textContent));
 let alturas = [];
 tdAlturas.forEach(altura => alturas.push(altura.textContent));
 
+let pesoValido = true;
 
-tdPesos.forEach(peso => {if(peso.textContent<0 || peso.textContent>1000){
+tdPesos.forEach(peso => {if(!validaPeso(peso.textContent)){
     peso.textContent = "Peso Invalido!";
     peso.parentElement.classList.add('invalido');
 }})
 
-tdAlturas.forEach(altura => {if(altura.textContent<0 || altura.textContent>3){
+tdAlturas.forEach(altura => {if(!validaAltura(altura.textContent)){
     altura.textContent = "Altura Invalido!"
     altura.parentElement.classList.add('invalido');
 }})
@@ -39,4 +40,19 @@ for(let i=0; i<pesos.length; i++){
     calcIMC(pesos[i], alturas[i], i)
 }
 
+function validaPeso(peso){
+    if(peso >= 0 && peso <= 1000){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validaAltura(altura){
+    if(altura >= 0 && altura <= 3){
+        return true;
+    } else {
+        return false;
+    } 
+}
 
