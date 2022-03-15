@@ -6,6 +6,7 @@ campoFiltro.addEventListener('input', function(){
     if(this.value.length > 0 ){
         pacientes.forEach(function(paciente){
             let nome = paciente.querySelector('.info-nome').textContent;
+            
             let expressao = new RegExp(campoFiltro.value, "i")
             
             if(!expressao.test(nome)){
