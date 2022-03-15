@@ -8,11 +8,12 @@ botao.onclick = function(event){
 
     let pacienteTr = montaTr(paciente);
 
-    let erro = validaPaciente(paciente);
+    let erros = validaPaciente(paciente);
 
-    if(erro.length > 0){
-        let mensagemErro = document.querySelector('#mensagem-erro');
-        mensagemErro.textContent = erro;
+    if(erros.length > 0){
+        // let mensagemErro = document.querySelector('');
+        // mensagemErro.textContent = erros;
+        exibeMensagensErro(erros);
         form.reset();
         return;
     }
@@ -21,6 +22,15 @@ botao.onclick = function(event){
     tabela.appendChild(pacienteTr);
 
     form.reset();
+}
+
+function exibeMensagensErro(erros){
+    let ul = document.querySelector('#mensagens-erro');
+    erros.forEach(function(erro){
+        let li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    })
 }
 
 function obtemPacienteFormulario(form) {
