@@ -11,8 +11,7 @@ botao.onclick = function(event){
     let erros = validaPaciente(paciente);
 
     if(erros.length > 0){
-        // let mensagemErro = document.querySelector('');
-        // mensagemErro.textContent = erros;
+
         exibeMensagensErro(erros);
         form.reset();
         return;
@@ -26,6 +25,9 @@ botao.onclick = function(event){
 
 function exibeMensagensErro(erros){
     let ul = document.querySelector('#mensagens-erro');
+
+    ul.innerHTML = "";
+
     erros.forEach(function(erro){
         let li = document.createElement("li");
         li.textContent = erro;
@@ -82,7 +84,7 @@ function validaPaciente(paciente){
     if(paciente.altura.length == 0) erros.push("Altura não pode ser em branco");
 
     if(paciente.gordura.length == 0) erros.push("Gordura não pode ser em branco");
-    
+
     if(!validaPeso(paciente.peso)) erros.push("O peso é inválido!");
 
     if(!validaAltura(paciente.altura)) erros.push("Altura inválida!");
