@@ -8,6 +8,15 @@ botao.onclick = function(event){
 
     let pacienteTr = montaTr(paciente);
 
+    let erro = validaPaciente(paciente);
+
+    if(erro.length > 0){
+        let mensagemErro = document.querySelector('#mensagem-erro');
+        mensagemErro.textContent = erro;
+        form.reset();
+        return;
+    }
+
     let tabela = document.querySelector('#tabela-pacientes');
     tabela.appendChild(pacienteTr);
 
@@ -53,3 +62,12 @@ function obtemPacienteFormulario(form) {
     return td;
  }
 
+function validaPaciente(paciente){
+    let erros = [];
+
+    if(!validaPeso(paciente.peso)) erros.push("O peso é inválido!");
+
+    if(!validaAltura(paciente.altura)) erros.push("Altura inválida!");
+
+    return erros;
+}
