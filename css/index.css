@@ -137,3 +137,8 @@ button[disabled=disabled], button:disabled {
 .invalido{
 	color: red;
 }
+
+.fadeOut{
+	opacity: 0;
+	transition: 0.5s;
+}
