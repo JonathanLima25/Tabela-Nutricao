@@ -21,6 +21,7 @@ botao.onclick = function(event){
     tabela.appendChild(pacienteTr);
 
     form.reset();
+    document.querySelector('#mensagens-erro').innerHTML = "";
 }
 
 function exibeMensagensErro(erros){
